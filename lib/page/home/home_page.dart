@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               Text(state.props[0]),
-              Text("앱을 껐다 켜도 자동로그인 입니다."),
+              Text("자동로그인이 되어있습니다."),
             ],
           );
         }
