@@ -54,6 +54,12 @@ class UserRepository {
     return false;
   }
   Future<String> getUser() async {
-    return "wowowowowo";
+    prefs = await SharedPreferences.getInstance();
+    String token = prefs.getString('token');
+    final response = await http
+        .get(USER_URL, headers: {"X-AUTH-TOKEN" : token});
+    dejson = json.decode(response.body);
+    var list = dejson['data'];
+    return list['uid'];
   }
 }

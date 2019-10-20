@@ -20,6 +20,8 @@ class Authenticated extends AuthenticationState {
   String toString() => 'Authenticated { displayName: $displayName }';
 }
 
-class Unauthenticated extends AuthenticationState {}
+class Unauthenticated extends AuthenticationState {
+
+}
 
 class AuthenticationLoading extends AuthenticationState {}

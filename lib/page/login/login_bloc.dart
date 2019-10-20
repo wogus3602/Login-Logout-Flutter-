@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter_app/authentication/authentication.dart';
+import 'package:flutter_app/validator.dart';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 import '../../user_repository.dart';
@@ -7,6 +8,8 @@ import 'login.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final UserRepository userRepository;
   final AuthenticationBloc authenticationBloc;
+
+
 
   LoginBloc({
     @required this.userRepository,
@@ -36,4 +39,5 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       }
     }
   }
+
 }
