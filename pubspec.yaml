@@ -25,6 +25,8 @@ dependencies:
   bloc: ^0.16.1
   equatable: ^0.6.0
   flutter_bloc: ^0.22.1
+  shared_preferences:
+  flutter_local_notifications:
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -17,7 +17,8 @@ class HomePage extends StatelessWidget {
           onPressed: () {
             BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut());
           },
-        )),
+        ),
+        ),
       ),
     );
   }
