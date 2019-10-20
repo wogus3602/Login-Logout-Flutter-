@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 
-class RegisterPage extends StatefulWidget {
-  @override
-  _RegisterPageState createState() => _RegisterPageState();
-}
 
-class _RegisterPageState extends State<RegisterPage> {
+class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +9,6 @@ class _RegisterPageState extends State<RegisterPage> {
       body:
       Column(
         mainAxisAlignment: MainAxisAlignment.center,
-
         children: <Widget>[
           TextField(
             decoration: InputDecoration(
@@ -51,6 +46,12 @@ class _RegisterPageState extends State<RegisterPage> {
               hintText: "Enter Name",
               labelText: "Name",
             ),
+          ),
+          RaisedButton(
+              color: Colors.tealAccent,
+              child: Text("가입"),
+              onPressed: () {
+              }
           ),
         ],
       ),
