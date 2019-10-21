@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/page/login/create_account_button.dart';
 import 'package:flutter_app/user_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'register.dart';
 import 'login.dart';
 
 class LoginForm extends StatefulWidget {
-//  final UserRepository _userRepository;
-//  LoginForm({Key key, @required UserRepository userRepository})
-//      : assert(userRepository != null),
-//        _userRepository = userRepository,
-//        super(key: key);
-  @override
+  final UserRepository _userRepository;
+  LoginForm({Key key, @required UserRepository userRepository})
+      : assert(userRepository != null),
+        _userRepository = userRepository,
+        super(key: key);
+
   State<LoginForm> createState() => _LoginFormState();
 }
 
 class _LoginFormState extends State<LoginForm> {
-  final _usernameController = TextEditingController();
-  final _passwordController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
-  //UserRepository get _userRepository => widget._userRepository;
+  UserRepository get _userRepository => widget._userRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +92,6 @@ class _LoginFormState extends State<LoginForm> {
                                      obscureText: true,
                                    ),
                                    Row(
-
                                      mainAxisAlignment: MainAxisAlignment.center,
                                      children: <Widget>[
                                        Padding(padding: EdgeInsets.only(top: 100)),
@@ -103,7 +102,7 @@ class _LoginFormState extends State<LoginForm> {
                                          child: Text('Login'),
                                        ),
                                        Padding(padding: EdgeInsets.only(right: 30)),
-                                       Register(),
+                                       CreateAccountButton(userRepository: _userRepository),
                                      ],
                                    ),
 

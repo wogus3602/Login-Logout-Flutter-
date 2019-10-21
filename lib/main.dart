@@ -28,24 +28,43 @@ class SimpleBlocDelegate extends BlocDelegate {
   }
 }
 
+//void main() {
+//  BlocSupervisor.delegate = SimpleBlocDelegate();
+//  final userRepository = UserRepository();
+//  runApp(
+//    BlocProvider<AuthenticationBloc>(
+//      builder: (context) {
+//        return AuthenticationBloc(userRepository: userRepository)
+//          ..add(AppStarted());
+//      },
+//      child: App(userRepository: userRepository),
+//    ),
+//  );
+//}
+
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   BlocSupervisor.delegate = SimpleBlocDelegate();
-  final userRepository = UserRepository();
+  final UserRepository userRepository = UserRepository();
   runApp(
-    BlocProvider<AuthenticationBloc>(
-      builder: (context) {
-        return AuthenticationBloc(userRepository: userRepository)
-          ..add(AppStarted());
-      },
+    BlocProvider(
+      builder: (context) =>
+      AuthenticationBloc(userRepository: userRepository)..add(AppStarted()),
       child: App(userRepository: userRepository),
     ),
   );
 }
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   final UserRepository userRepository;
 
-  App({Key key, @required this.userRepository}) : super(key: key);
+  App({Key key, @required this.userRepository}) : super(key:key);
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  UserRepository get _userRepository => widget.userRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -56,11 +75,39 @@ class App extends StatelessWidget {
             return HomePage();
           }
           if (state is Unauthenticated) {
-            return LoginPage(userRepository: userRepository);
+            return LoginPage(userRepository: widget.userRepository);
           }
+
           return SplashPage();
         },
       ),
     );
   }
 }
+
+//
+//class App extends StatelessWidget {
+//  final UserRepository _userRepository;
+//
+//  App({Key key, @required UserRepository userRepository})
+//      : assert(userRepository != null),
+//        _userRepository = userRepository,
+//        super(key: key);
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    return MaterialApp(
+//      home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+//        builder: (context, state) {
+//          if (state is Authenticated) {
+//            return HomePage();
+//          }
+//          if (state is Unauthenticated) {
+//            return LoginPage(userRepository: _userRepository);
+//          }
+//          return SplashPage();
+//        },
+//      ),
+//    );
+//  }
+//}
