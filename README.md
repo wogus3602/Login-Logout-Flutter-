@@ -20,6 +20,7 @@ samples, guidance on mobile development, and a full API reference.
 |---| --------------------- |
 |flutter version| 1.0.0+1 | 
 |로그인|구현| 
+|자동로그인|구현|
 |로그아웃|구현 |  
 |회원가입|구현| 
 |회원가입 |패스워드 확인 미구현|
