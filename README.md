@@ -21,7 +21,7 @@ samples, guidance on mobile development, and a full API reference.
 |flutter version| 1.0.0+1 | 
 |로그인|구현| 
 |로그아웃|구현 |  
-|회원가입|미구현| 
+|회원가입|구현| 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -31,5 +31,3 @@ samples, guidance on mobile development, and a full API reference.
 ![Swagger](./picture/p2.png)
 ![Swagger](./picture/p3.png)
 
-
-회원가입 페이지는 진행중입니다.
